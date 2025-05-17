@@ -14,7 +14,8 @@ export default defineConfig([
 			'quotes': ['error', 'single'],
 			'indent': ['error', 'tab'],	
 			'semi': ['error', 'never'],
-			'no-undef': 'warn'
+			'no-undef': 'warn',
+			'max-len': ['error', { code: 120 }]
 		}
 	}
 ])
