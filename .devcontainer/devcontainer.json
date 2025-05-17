@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Debian",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	//"image": "mcr.microsoft.com/devcontainers/base:bullseye""
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode-remote.remote-containers",
+				"ms-azuretools.vscode-docker",
+				"oven.bun-vscode"
+			]
+		},
+		"settings": {
+			"terminal.integrated.defaultProfile.linux": "bash",
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.fixAll.eslint": true
+			}
+		},
+		"mounts": [
+			"source=${localEnv:HOME}/.ssh,target=/${localWorkspaceFolder}/.ssh,type=bind,consistency=cached"
+		],
+		"features": {},
+		"forwardPorts": [
+			3000
+		]
+	},
+	"remoteUser": "vscode"
+}
